@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: next-js-deployment
+  name: react-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      component: next-js-app
+      component: react-app
   template:
     metadata:
       labels:
-        component: next-js-app
+        component: react-app
       containers:
         - name: app
-          image: agung96tm/next-js-app
+          image: agung96tm/react-app
           ports:
             - containerPort: 3000
           env:
-            - name: NEXT_PUBLIC_APP_URL
+            - name: REACT_APP_BASE_URL
               value: 'https://www.linkedin.com/in/agung96tm'

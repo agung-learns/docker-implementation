@@ -26,8 +26,8 @@ jobs:
 
       - name: "Build & Push"
         run: |
-          docker build -t agung96tm/react-js-app:latest -t agung96tm/react-js-app:$SHA -f Dockerfile .
-          docker push agung96tm/react-js-app:$SHA
+          docker build -t agung96tm/react-app:latest -t agung96tm/react-app:$SHA -f Dockerfile .
+          docker push agung96tm/react-app:$SHA
         env:
           SHA: ${{ env.SHA }}
 
@@ -52,7 +52,7 @@ jobs:
 
       - name: 'Deploy to GKE'
         run: |
-          kubectl apply -f k8s
-          kubectl set image deployment/app-deployment app=agung96tm/react-js-app:$SHA
+          kubectl apply -f deploy/k8s
+          kubectl set image deployment/app-deployment app=agung96tm/react-app:$SHA
         env:
           SHA: ${{ env.SHA }}
