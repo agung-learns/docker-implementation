@@ -1,13 +1,19 @@
-Docker Implementation
+React with Docker
 ================================
 
-### List to Implements
-* [React](https://github.com/agung-learns/docker-implementation/tree/main/react/react-docker)
-* [NextJS](https://github.com/agung-learns/docker-implementation/tree/main/nextjs/nextjs-docker)
-* NestJS
-* ExpressJS
-* Django
-* Flask
+
+### How to Run
+
+#### Docker
+```shell
+cp .env.example .env.local
+docker compose up --build
+```
+
+#### Kubernetes
+```shell
+kubectl apply -f deploy/k8s
+```
 
 ### Contributors
 <table>
