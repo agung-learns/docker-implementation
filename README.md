@@ -2,8 +2,8 @@ Docker Implementation
 ================================
 
 ### List to Implements
-* [React](https://github.com/agung-learns/docker-implementation/tree/feature/main/react/react-docker)
-* [NextJS](https://github.com/agung-learns/docker-implementation/tree/feature/main/nextjs/nextjs-docker)
+* [React](https://github.com/agung-learns/docker-implementation/tree/main/react/react-docker)
+* [NextJS](https://github.com/agung-learns/docker-implementation/tree/main/nextjs/nextjs-docker)
 * NestJS
 * ExpressJS
 * Django
