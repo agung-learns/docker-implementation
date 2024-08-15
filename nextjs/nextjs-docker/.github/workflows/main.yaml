@@ -52,7 +52,7 @@ jobs:
 
       - name: 'Deploy to GKE'
         run: |
-          kubectl apply -f k8s
+          kubectl apply -f deploy/k8s
           kubectl set image deployment/server-deployment app=agung96tm/next-js-app:$SHA
         env:
           SHA: ${{ env.SHA }}

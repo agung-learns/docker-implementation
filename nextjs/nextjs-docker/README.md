@@ -12,7 +12,7 @@ docker compose up --build
 
 #### Kubernetes
 ```shell
-kubectl apply -f deploy
+kubectl apply -f deploy/k8s
 ```
 
 ### Contributors
