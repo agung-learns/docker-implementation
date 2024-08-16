@@ -15,18 +15,18 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 
-FROM node:20-alpine as builder
+FROM node:20-alpine as build
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN npm run build
+RUN npm run build --prod
 
 
 FROM nginx:1.27.0-alpine as production
 
-EXPOSE 3000
+COPY --from=build /app/dist/angular-docker /usr/share/nginx/html
+EXPOSE 80
 
-COPY ./deploy/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/build /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]

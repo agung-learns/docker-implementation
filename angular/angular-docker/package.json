@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-docker": "node dist/angular-docker/server/server.mjs"
+    "serve:ssr": "node dist/angular-docker/server/server.mjs"
   },
   "private": true,
   "dependencies": {
