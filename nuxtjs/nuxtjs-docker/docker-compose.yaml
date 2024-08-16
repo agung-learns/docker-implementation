@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  app:
+    container_name: nuxtjs-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    restart: always
+    command: npm run dev
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.nuxt
+      - /app/.output
+    ports:
+      - "3000:3000"
