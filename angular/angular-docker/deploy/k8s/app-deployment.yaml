@@ -15,7 +15,5 @@ spec:
         - name: app
           image: agung96tm/angular-app
           ports:
-            - containerPort: 3000
-          env:
-            - name: APP_URL
-              value: 'https://www.linkedin.com/in/agung96tm'
+            - containerPort: 4000
+

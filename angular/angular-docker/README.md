@@ -6,7 +6,6 @@ Angular with Docker
 
 #### Docker
 ```shell
-# cp .env.example .env.local
 docker compose up --build
 ```
 
