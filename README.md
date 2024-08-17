@@ -5,6 +5,7 @@ Docker Implementation
 * [React](https://github.com/agung-learns/docker-implementation/tree/main/react/react-docker)
 * [NextJS](https://github.com/agung-learns/docker-implementation/tree/main/nextjs/nextjs-docker)
 * [NuxtJS](https://github.com/agung-learns/docker-implementation/tree/main/nuxtjs/nuxtjs-docker)
+* [Angular](https://github.com/agung-learns/docker-implementation/tree/main/angular/angular-docker)
 * NestJS
 * ExpressJS
 * Django

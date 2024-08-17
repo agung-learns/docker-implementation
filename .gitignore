@@ -36,9 +36,13 @@ Temporary Items
 
 # Editor
 .idea/
+.vscode/
 
 
 # nextjs
 nextjs/**/node_modules/
+
+# Angular
+angular/**/.angular
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
