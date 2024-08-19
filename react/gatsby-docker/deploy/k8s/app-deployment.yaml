@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatsby-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: gatsby-app
+  template:
+    metadata:
+      labels:
+        component: gatsby-app
+      containers:
+        - name: app
+          image: agung96tm/gatsby-app
+          ports:
+            - containerPort: 3000
+          env:
+            - name: GATSBY_BASE_URL
+              value: 'https://www.linkedin.com/in/agung96tm'
