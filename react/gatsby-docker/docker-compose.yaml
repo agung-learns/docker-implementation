@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  app:
+    container_name: gatsby-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    restart: always
+    command: npm run develop
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/public
+    ports:
+      - "3000:3000"

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: react-app
+  template:
+    metadata:
+      labels:
+        component: react-app
+      containers:
+        - name: app
+          image: agung96tm/react-app
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_BASE_URL
+              value: 'https://www.linkedin.com/in/agung96tm'
