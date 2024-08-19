@@ -144,6 +144,9 @@ const IndexPage: React.FC<PageProps> = () => {
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
       </h1>
+      <p>
+        Base Url: {process.env.GATSBY_BASE_URL}
+      </p>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
         update in real-time. 😎

@@ -7,10 +7,11 @@ services:
       dockerfile: Dockerfile
       target: development
     restart: always
-    command: npm run develop
+    command: npm run develop -- -H 0.0.0.0
     volumes:
       - .:/app
       - /app/node_modules
-      - /app/public
+    env_file:
+      - .env
     ports:
-      - "3000:3000"
+      - "8000:8000"

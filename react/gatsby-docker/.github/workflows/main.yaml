@@ -26,8 +26,8 @@ jobs:
 
       - name: "Build & Push"
         run: |
-          docker build -t agung96tm/react-app:latest -t agung96tm/react-app:$SHA -f Dockerfile .
-          docker push agung96tm/react-app:$SHA
+          docker build -t agung96tm/gatsby-app:latest -t agung96tm/gatsby-app:$SHA -f Dockerfile .
+          docker push agung96tm/gatsby-app:$SHA
         env:
           SHA: ${{ env.SHA }}
 
@@ -53,6 +53,6 @@ jobs:
       - name: 'Deploy to GKE'
         run: |
           kubectl apply -f deploy/k8s
-          kubectl set image deployment/app-deployment app=agung96tm/react-app:$SHA
+          kubectl set image deployment/app-deployment app=agung96tm/gatsby-app:$SHA
         env:
           SHA: ${{ env.SHA }}
