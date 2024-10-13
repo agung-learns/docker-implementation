@@ -14,6 +14,8 @@ Docker Implementation
 * ExpressJS
 * Django
 * Flask
+* Fastapi
+  * [Fastapi](https://github.com/agung-learns/docker-implementation/tree/main/fastapi/fastapi-docker)
 
 ### Contributors
 <table>

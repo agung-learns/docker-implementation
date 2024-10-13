@@ -45,4 +45,11 @@ nextjs/**/node_modules/
 # Angular
 angular/**/.angular
 
+
+## ------- Python  -------
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
 # End of https://www.toptal.com/developers/gitignore/api/macos
