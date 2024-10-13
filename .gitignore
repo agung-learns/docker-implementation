@@ -45,4 +45,8 @@ nextjs/**/node_modules/
 # Angular
 angular/**/.angular
 
+.env
+.env-*
+!.env-*.example
+
 # End of https://www.toptal.com/developers/gitignore/api/macos
