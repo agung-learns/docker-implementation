@@ -1,0 +1,49 @@
+version: '3.1'
+
+services:
+  app:
+    container_name: blog-app
+    image: wordpress:6.6.2-apache
+    restart: always
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: blog_db
+      WORDPRESS_DB_USER: gapai_blog_user
+      WORDPRESS_DB_PASSWORD: gapai_blog_pass
+      WORDPRESS_DB_NAME: gapai_blog_db
+    volumes:
+      - blog_app_data:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - blog-network
+
+  db:
+    container_name: gapai_blog_db
+    image: mariadb:10.5
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env-db
+    volumes:
+      - blog_db_data:/var/lib/mysql
+
+  webserver:
+    container_name: gapai_blog_webserver
+    depends_on:
+      - blog
+    image: nginx:1.15.12-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - blog_app_data:/var/www/html
+      - ./deploy/nginx:/etc/nginx/conf.d
+
+volumes:
+  blog_app_data: {}
+  blog_db_data: {}
+

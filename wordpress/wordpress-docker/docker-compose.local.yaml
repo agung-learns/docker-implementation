@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  blog:
+    container_name: blog-local-app
+    image: wordpress:6.6.2-apache
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress_user
+      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_NAME: wordpress_db
+    volumes:
+      - blog_app_local_data:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    container_name: blog-local-db
+    image: mariadb:10.5
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: wordpress_db
+      MYSQL_USER: wordpress_user
+      MYSQL_PASSWORD: wordpress_password
+      MYSQL_ROOT_PASSWORD: wordpress_password
+    volumes:
+      - blog_db_local_data:/var/lib/mysql
+
+volumes:
+  blog_app_local_data: {}
+  blog_db_local_data: {}
