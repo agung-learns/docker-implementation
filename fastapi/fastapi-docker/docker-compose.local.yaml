@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: "fastapi-local-db"
+    image: "postgres:16.2-alpine"
+    environment:
+      - POSTGRES_USER=gapai_user
+      - POSTGRES_PASSWORD=gapai_password
+      - POSTGRES_DB=gapai_db
+    volumes:
+      - api_local_db:/var/libs/postgresql/data/
+    ports:
+      - "5432:5432"
+
+volumes:
+  api_local_db: {}

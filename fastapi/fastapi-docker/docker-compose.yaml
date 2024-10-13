@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: "gap-ai-nginx"
+    build: deploy/docker/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
+  api:
+    container_name: "fastapi-api"
+    build:
+      context: .
+      dockerfile: deploy/docker/Dockerfile
+    command: /app/start.sh
+    volumes:
+      - gap_ai_upload_files:/app/upload
+    env_file:
+      - .env-prod
+    depends_on:
+      - redis
+      - db
+      - vector
+
+  db:
+    container_name: "fastapi-db"
+    image: postgres:16.2-alpine
+    environment:
+      - POSTGRES_USER=gapai_user
+      - POSTGRES_PASSWORD=gapai_password
+      - POSTGRES_DB=gapai_db
+    volumes:
+      - api_db:/var/lib/postgresql/data/
+
+volumes:
+  api_db: {}
